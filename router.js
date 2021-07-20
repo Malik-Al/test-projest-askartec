@@ -12,6 +12,7 @@ router.post('/register',[
 ], authentification.registration)
 router.post('/login', authentification.login)
 router.post('/users/product/create/:id', userController.userProductCreate)
+router.get('/users/product/:id', userController.userProductGet)
 
 router.get('/category', categoryController.categoryGet)
 router.get('/category/:id', categoryController.categoryId)

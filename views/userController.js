@@ -16,8 +16,19 @@ class userController {
             res.json(product)
         } catch (e) {
             console.log(e)
-            res.status(400).json({message:'product create error'})
+            res.status(400).json({message:'user product create error'})
         }
     }
+    async userProductGet(req, res){
+        try{
+            const id = req.params.id
+            const product = await User.findOne({_id: id})
+            res.json(product)
+        } catch (e) {
+            console.log(e)
+            res.status(400).json({message:'user get error'})
+        }
+    }
+
 }
 module.exports = new userController()
