@@ -3,6 +3,7 @@ const router = new Router()
 const authentification = require('./auth/authentification')
 const productController = require('./views/productController')
 const categoryController = require('./views/categoryController')
+const userController = require('./views/userController')
 const {check} = require('express-validator')
 
 router.post('/register',[
@@ -10,6 +11,7 @@ router.post('/register',[
     check('password', 'Пароль должен быть добше 4 или менье 10 символов').isLength({min:4,max:10})
 ], authentification.registration)
 router.post('/login', authentification.login)
+router.post('/users/product/create/:id', userController.userProductCreate)
 
 router.get('/category', categoryController.categoryGet)
 router.get('/category/:id', categoryController.categoryId)
